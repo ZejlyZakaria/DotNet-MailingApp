@@ -1,0 +1,595 @@
+﻿@model Mailing.Models.User
+
+@{
+    ViewBag.Title = "Tableau de bord";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<span id="fullNameSpan2" style="visibility: hidden">@Model.FirstName @Model.LastName</span>
+<input id="currentUserId" style="visibility: hidden" value="@Model.Id" />
+
+<div class="flex items-center justify-between">
+    <div class="flex">
+            <div class="flex items-end">
+                <div class="relative mr-3 w-full revue-form-group">
+                    <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                        <i class='bx bx-search text-gray-500'></i>
+                    </div>
+                    <input class="revue-form-field bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rechercher..." type="text"  id="searchUsers" onkeyup="searchUsers()">
+                </div>
+            </div>
+    </div>
+
+    <button class="block w-full md:w-auto space-x-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex items-center dark:bg-gray-400" type="button" data-modal-toggle="large-modal" onclick="checkService('add')">
+        <i class='bx bx-plus bx-xs'></i>
+        <h6>Ajouter</h6>
+    </button>
+</div>
+
+<div class="col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200 dark:bg-gray-800 dark:border-gray-700 mt-4">
+    <header class="px-5 py-4 border-b border-slate-100  dark:border-gray-700">
+        <h2 class="font-semibold text-slate-800 dark:text-gray-300">Utilisateurs</h2>
+    </header>
+    <div class="p-3 ">
+        <div class="overflow-x-auto">
+            <table id="usersTable" class="table-auto w-full">
+                <thead class="text-xs font-semibold uppercase text-slate-400 bg-slate-50 dark:bg-gray-700">
+                    <tr>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-left">Nom complet</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-left">Email</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-left">Service</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Grade</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Responsable</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Crée le</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Modifié le</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Actions</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="usersData" class="text-sm divide-y divide-slate-100 ">
+                    @*@foreach (Mailing.Models.User user in (List<Mailing.Models.User>)ViewData["listUsers"])
+                    {
+                        <tr>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3">
+                                        <img class="rounded-full"
+                                             src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                                             width="40" height="40" alt="Alex Shatov">
+                                    </div>
+                                    <div class="font-medium flex text-slate-800">
+                                        @user.FirstName @user.LastName
+                                        @if (user.Id == Model.Id)
+                                        {
+                                            <div class="italic font-medium ml-1 font-sm text-slate-600">
+                                                (vous)
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="text-left">@user.Email</div>
+                            </td>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="text-left font-medium text-green-500">@user.UserService.Name</div>
+                            </td>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="font-medium text-center">@user.Grade</div>
+                            </td>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="font-medium text-center">
+                                    @if (user.IsResponsable)
+                                    {
+                                        <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Oui</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Non</span>
+                                    }
+                                </div>
+                            </td>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class=" text-center">@user.CreatedIn</div>
+                            </td>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="text-center">@user.ModifiedIn</div>
+                            </td>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="text-center text-base">
+                                    @if (user.Id != Model.Id)
+                                    {
+                                        <i class='bx bxs-trash text-red-600 cursor-pointer' onclick="passData(@user.Id, 'deleteUserId')" ></i>
+
+                                    }
+                                    <i class='bx bxs-edit text-blue-700 cursor-pointer' onclick="passModifyData(@user.Id, '@user.FirstName', '@user.LastName', '@user.Email', '@user.UserService.Id', '@user.Grade', '@user.IsResponsable.ToString()')" ></i>
+                                </div>
+                            </td>
+                        </tr>
+
+                    }*@
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Add User Modal -->
+<div class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full" id="large-modal">
+    <div class="relative px-4 w-full max-w-4xl h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
+                <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                    Nouveau utilisateur
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="large-modal" onclick="resetForm('formAdd')">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+
+            <form id="formAdd" method="POST">
+                <!-- Modal body -->
+                <div class="p-6 space-y-6">
+                    <div class="px-4 py-5 bg-white dark:bg-gray-700 sm:p-6">
+                        <div class="grid grid-cols-6 gap-6">
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="first-name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Nom</label>
+                                <input type="text" name="LastName" id="LastName" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Prénom</label>
+                                <input type="text" name="FirstName" id="FirstName" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="email-address" id="EmailLabel" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Adresse e-mail</label>
+                                <input type="email" name="Email" id="Email" onkeyup="checkEmail('add')" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                <p id="emailError1" class="hidden mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oups!</span> Adresse e-mail déjà prise!</p>
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="country" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Service</label>
+                                <select id="UserService_Id" name="UserService.Id" onchange="checkService('add')" autocomplete="Service_name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                    @foreach (Mailing.Models.Service service in (List<Mailing.Models.Service>)ViewData["listServices"])
+                                    {
+                                        <option value="@service.Id">@service.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="country" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Grade</label>
+                                <select id="Grade" name="Grade" autocomplete="grade" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                            </div>
+
+                            <div id="addResponsableDiv" class="col-span-6 sm:col-span-3">
+                                <label for="country" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Responsable</label>
+                                <div class="mt-4 space-x-12 items-center flex">
+                                    <div class="flex items-center" onclick="toggleRadio('add')">
+                                        <input id="IsResponsableYes" name="IsResponsable" type="radio" value="true" onclick="toggleRadio('add')" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <label for="IsResponsableYes" class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-400"> Oui </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                    <button id="btnSend" @*onclick="toggleBtns()"*@ type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ajouter</button>
+                    <button disabled id="btnLoading" type="button" class="hidden py-2.5 px-5 mr-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 inline-flex items-center">
+                        <svg role="status" class="inline mr-2 w-4 h-4 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+                            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2" />
+                        </svg>
+                        Chargement...
+                    </button>
+                    <button data-modal-toggle="large-modal" type="button"  onclick="resetForm('formAdd')" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Fermer</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Delete User Modal -->
+<div class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full" id="popup-modal">
+    <div class="relative px-4 w-full max-w-md h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex justify-end p-2">
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal" >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-6 pt-0 text-center">
+                <svg class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Voulez-vous vraiment supprimer cet utilisateur ?</h3>
+                <form action="/User/DeleteUser" method="post">
+                    <input type="number" name="idUser" id="deleteUserId" value="" style="display: none" />
+                    <button type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Oui, je suis sûr
+                    </button>
+                    <button data-modal-toggle="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Non, annuler</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modify User Modal -->
+<div class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full" id="modify-user-modal">
+    <div class="relative px-4 w-full max-w-4xl h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
+                <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                    Modification d'utilisateur
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="modify-user-modal" onclick="resetForm('formModify')">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+
+            <form id="formModify" action="/User/ModifyUser" method="POST">
+                <!-- Modal body -->
+                <div class="p-6 space-y-6">
+                    <div class="px-4 py-5 bg-white dark:bg-gray-700 sm:p-6">
+                        <div class="grid grid-cols-6 gap-6">
+                            <input type="text" name="Id" id="modifyId"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="" style="display: none" >
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="first-name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Nom</label>
+                                <input type="text" name="LastName" id="modifyLastName" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Prénom</label>
+                                <input type="text" name="FirstName" id="modifyFirstName" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="email-address" id="modifyEmailLabel" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Adresse e-mail</label>
+                                <input type="email" name="Email" id="modifyEmail" onkeyup="checkEmail('modify')" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                <p id="emailError2" class="hidden mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oups!</span> Adresse e-mail déjà prise!</p>
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="country" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Service</label>
+                                <select id="modifyUserServiceId" name="UserService.Id" onchange="checkService('modify')" autocomplete="service_name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                    @foreach (Mailing.Models.Service service in (List<Mailing.Models.Service>)ViewData["listServices"])
+                                    {
+                                        <option value="@service.Id">@service.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="country" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Grade</label>
+                                <select id="modifyGrade" name="Grade" autocomplete="grade" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                            </div>
+
+                            <div id="modifyResponsableDiv" class="col-span-6 sm:col-span-3">
+                                <label for="country" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Responsable</label>
+                                <div class="mt-4 space-x-12 items-center flex">
+                                    <div class="flex items-center" onclick="toggleRadio('modify')">
+                                        <input id="modifyIsResponsableYes" name="IsResponsable" type="radio" value="true" onclick="toggleRadio('modify')"  class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <label for="IsResponsableYes" class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-400"> Oui </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                    <button type="submit" id="btnModify" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Modifier</button>
+                    <button data-modal-toggle="modify-user-modal" type="button" onclick="resetForm('formModify')" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Fermer</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    let emails = new Array;
+    let services = new Array;
+    let modifyUserEmail = '';
+    let modifyUserService = '';
+    $(document).ready(function () {
+        $("#fullNameSpan").html($("#fullNameSpan2").html());
+        $("#fullNameDiv").html($("#fullNameSpan2").html());
+        $("#modifyIsResponsableYes").click(function () {
+            if ($('#modifyIsResponsableYes').is(':checked')) {
+                $("#modifyIsResponsableYes").prop("checked", false);
+            }
+            else {
+                $("#modifyIsResponsableYes").prop("checked", true);
+            }
+        });
+        searchUsers();
+
+    });
+
+    function checkService(arg) {
+        if (arg == 'add') {
+            var service = $("#UserService_Id").val();
+            var error = false;
+            services.forEach(function (item) {
+                if (service == item) {
+                    error = true;
+                }
+            });
+            console.log(service)
+            if (error) {
+                $("#addResponsableDiv").hide();
+            }
+            else {
+                $("#addResponsableDiv").show();
+            }
+        }
+        else if (arg == 'modify') {
+            var service = $("#modifyUserServiceId").val();
+            if (service == modifyUserService) {
+                $("#modifyResponsableDiv").show();
+            }
+            else {
+                var error = false;
+                services.forEach(function (item) {
+                    if (service == item) {
+                        error = true;
+                    }
+                });
+                if (error) {
+                    $("#modifyResponsableDiv").hide();
+                }
+                else {
+                    $("#modifyResponsableDiv").show();
+                }
+            }
+
+        }
+    }
+
+    function ableBtn(btnId) {
+        $(btnId).removeAttr('disabled');
+        $(btnId).removeClass('cursor-not-allowed');
+        $(btnId).removeClass('bg-blue-400');
+        $(btnId).addClass('bg-blue-700');
+        $(btnId).addClass('hover:bg-blue-800')
+    }
+
+    function disableBtn(btnId) {
+        $(btnId).attr('disabled', 'disabled')
+        $(btnId).removeClass('bg-blue-700');
+        $(btnId).removeClass('hover:bg-blue-800');
+        $(btnId).addClass('cursor-not-allowed');
+        $(btnId).addClass('bg-blue-400');
+    }
+
+    function toggleBtns() {
+        $("#btnSend").toggle();
+        $("#btnLoading").toggle();
+    }
+
+    function passData(data, to) {
+        $("#" + to).val(data);
+        toggleModal("popup-modal");
+    }
+
+    function passModifyData(id, firstName, lastName, email, userServiceId, grade, isResponsable) {
+        $("#modifyId").val(id);
+        $("#modifyFirstName").val(firstName);
+        $("#modifyLastName").val(lastName);
+        $("#modifyEmail").val(email);
+        $("#modifyGrade").val(grade);
+        $("#modifyUserServiceId").val(userServiceId);
+        if (isResponsable == 'True') {
+            $("#modifyIsResponsableYes").prop("checked", true);
+        }
+        else {
+            $("#modifyIsResponsableYes").prop("checked", false);
+        }
+        modifyUserEmail = email.toLowerCase();
+        modifyUserService = parseInt(userServiceId);
+        checkService('modify');
+        toggleModal("modify-user-modal");
+
+
+    }
+
+    function toggleRadio(arg) {
+        if (arg == 'add') {
+            if ($('#IsResponsableYes').is(':checked')) {
+                $("#IsResponsableYes").prop("checked", false);
+            }
+            else {
+                $("#IsResponsableYes").prop("checked", true);
+            }
+        }
+        else if (arg == 'modify') {
+            if ($('#modifyIsResponsableYes').is(':checked')) {
+                $("#modifyIsResponsableYes").prop("checked", false);
+            }
+            else {
+                $("#modifyIsResponsableYes").prop("checked", true);
+            }
+        }
+
+    }
+
+    function resetForm(formId) {
+        $('#' + formId).trigger("reset");
+        if (formId == 'formAdd') {
+            $("#emailError1").hide();
+            $("#Email").removeClass();
+            $("#Email").addClass("mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500");
+            $("#EmailLabel").removeClass();
+            $("#EmailLabel").addClass("block text-sm font-medium text-gray-700 dark:text-gray-400");
+            ableBtn("#btnSend");
+        }
+        else if (formId == 'formModify') {
+            $("#emailError2").hide();
+            $("#modifyEmail").removeClass();
+            $("#modifyEmail").addClass("mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500");
+            $("#modifyEmailLabel").removeClass();
+            $("#modifyEmailLabel").addClass("block text-sm font-medium text-gray-700 dark:text-gray-400");
+            ableBtn("#btnModify");
+        }
+
+    }
+
+    function checkEmail(arg) {
+        if (arg == 'add') {
+            var email = $("#Email").val().toLowerCase();
+            var error = false;
+            emails.forEach(function (item) {
+                if (email == item) {
+                    error = true;
+                }
+            });
+            if (error == true) {
+                $("#emailError1").show();
+                $("#Email").removeClass();
+                $("#Email").addClass("mt-1 bg-red-50 border border-red-500 text-red-900 placeholder-red-700 sm:text-sm rounded-lg w-full focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400 rounded-md");
+                $("#EmailLabel").removeClass();
+                $("#EmailLabel").addClass("block text-sm font-medium text-red-700 dark:text-red-500 dark:text-gray-400");
+                disableBtn("#btnSend");
+            }
+            else {
+                $("#emailError1").hide();
+                $("#Email").removeClass();
+                $("#Email").addClass("mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500");
+                $("#EmailLabel").removeClass();
+                $("#EmailLabel").addClass("block text-sm font-medium text-gray-700 dark:text-gray-400");
+                ableBtn("#btnSend");
+            }
+        }
+        else if (arg == 'modify') {
+            var email = $("#modifyEmail").val().toLowerCase();
+            if ($.trim(email) == $.trim(modifyUserEmail)) {
+                $("#emailError2").hide();
+                $("#modifyEmail").removeClass();
+                $("#modifyEmail").addClass("mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md");
+                $("#modifyEmailLabel").removeClass();
+                $("#modifyEmailLabel").addClass("block text-sm font-medium text-gray-700 dark:text-gray-400");
+                ableBtn("#btnModify");
+            }
+            else {
+                var error = false;
+                emails.forEach(function (item) {
+                    if (email == item) {
+                        error = true;
+                    }
+                });
+                if (error == true) {
+                    $("#emailError2").show();
+                    $("#modifyEmail").removeClass();
+                    $("#modifyEmail").addClass("mt-1 bg-red-50 border border-red-500 text-red-900 placeholder-red-700 sm:text-sm rounded-lg w-full focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400 rounded-md");
+                    $("#modifyEmailLabel").removeClass("text-gray-700");
+                    $("#modifyEmailLabel").addClass("block text-sm font-medium text-red-700 dark:text-red-500");
+                    disableBtn("#btnModify");
+                }
+                else {
+                    $("#emailError2").hide();
+                    $("#modifyEmail").removeClass();
+                    $("#modifyEmail").addClass("mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md");
+                    $("#modifyEmailLabel").removeClass();
+                    $("#modifyEmailLabel").addClass("block text-sm font-medium text-gray-700 dark:text-gray-400");
+                    ableBtn("#btnModify");
+                }
+            }
+        }
+
+    }
+
+    function searchUsers() {
+        var keyword = $("#searchUsers").val();
+        $('#usersTable tbody').empty();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("/GetUsers")',
+            dataType: 'json',
+            data: { key: keyword },
+            success: function (data) {
+                var items = '';
+                $.each(data, function (i, item) {
+                    var rows = "<tbody id='usersBody' class='text-sm divide-y divide-slate-100 dark:bg-gray-800'>" +
+                        "<tr class='dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700 border-b border-white'><td class='p-2 whitespace-nowrap'><div class='flex items-center'><div class='w-10 h-10 shrink-0 mr-2 sm:mr-3'>" +
+                        "<img class='rounded-full' src='https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png' width='40' height='40' alt='Alex Shatov'></div>" +
+                        "<div class='font-medium flex text-slate-800 dark:text-gray-400'>" + item.FirstName + " " + item.LastName;
+                    if (item.Id == parseInt($('#currentUserId').val())) {
+                        rows += "<div class='italic font-medium ml-1 font-sm text-slate-600 dark:text-gray-500'>(vous)</div >";
+                    }
+                    rows += "</div></div></td>" +
+                        "<td class='p-2 whitespace-nowrap'><div class='text-left'>" + item.Email + "</div></td>" +
+                        "<td class='p-2 whitespace-nowrap'><div class='text-left font-medium text-green-500'>" + item.UserService.Name + "</div></td>" +
+                        "<td class='p-2 whitespace-nowrap'><div class='font-medium text-center'>" + item.Grade + "</div></td>" +
+                        "<td class='p-2 whitespace-nowrap'><div class='font-medium text-center'>";
+                    if (item.IsResponsable) {
+                        rows += "<span class='bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900'>Oui</span>";
+                    }
+                    else {
+                        rows += "<span class='bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900'>Non</span>";
+                    }
+                    rows += "</div></td>" + "<td class='p-2 whitespace-nowrap'><div class='text-center'>" + item.CreatedIn + "</div></td>" +
+                        "<td class='p-2 whitespace-nowrap'><div class='text-center'>" + item.ModifiedIn + "</div></td>" +
+                        "<td class='p-2 whitespace-nowrap'><div class='text-center space-x-1 text-lg'>";
+                    var para = item.Id + ",'deleteUserId'"
+                    var para2 = item.Id + ",'" + item.FirstName + "','" + item.LastName + "','" + item.Email + "','" + item.UserService.Id + "','" + item.Grade + "','" + item.IsResponsable + "'";
+                    if (item.Id != parseInt($('#currentUserId').val())) {
+                        rows += "<i class='bx bxs-trash text-red-600 cursor-pointer dark:text-red-500' onclick=passData(" + para + ") ></i>";
+                    }
+                    rows += "<i class='bx bxs-edit text-blue-700 cursor-pointer dark:text-blue-500' onclick=passModifyData(" + para2 + ") ></i></div></td></tr></tbody>";
+
+
+                    $('#usersTable').append(rows);
+                    emails.push(item.Email);
+                    if (item.IsResponsable) {
+                        services.push(item.UserService.Id);
+                    }
+                });
+            },
+            error: function (ex) {
+                var r = jQuery.parseJSON(response.responseText);
+                alert("Message: " + r.Message);
+                alert("StackTrace: " + r.StackTrace);
+                alert("ExceptionType: " + r.ExceptionType);
+            }
+        });
+        return false;
+    }
+</script>

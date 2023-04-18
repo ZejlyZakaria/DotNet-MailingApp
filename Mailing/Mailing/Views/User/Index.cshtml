@@ -1,0 +1,147 @@
+﻿@model Mailing.Models.User
+
+@{
+    ViewBag.Title = "Tableau de bord";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<span id="fullNameSpan2" style="visibility: hidden">@Model.FirstName @Model.LastName</span>
+
+<div class="
+                                    relative
+                                    bg-purple-200
+                                    p-4
+                                    sm:p-6
+                                    rounded-sm
+                                    overflow-hidden
+                                    mb-8
+                                ">
+    <div class="
+                                        absolute
+                                        right-0
+                                        top-0
+                                        -mt-4
+                                        mr-16
+                                        pointer-events-none
+                                        hidden
+                                        xl:block
+                                    " aria-hidden="true">
+        <svg width="319" height="198" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <path id="welcome-a" d="M64 0l64 128-64-20-64 20z"></path>
+                <path id="welcome-e" d="M40 0l40 80-40-12.5L0 80z"></path>
+                <path id="welcome-g" d="M40 0l40 80-40-12.5L0 80z"></path>
+                <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="welcome-b">
+                    <stop stop-color="#A5B4FC" offset="0%"></stop>
+                    <stop stop-color="#818CF8" offset="100%"></stop>
+                </linearGradient>
+                <linearGradient x1="50%" y1="24.537%" x2="50%" y2="100%" id="welcome-c">
+                    <stop stop-color="#4338CA" offset="0%"></stop>
+                    <stop stop-color="#6366F1" stop-opacity="0" offset="100%"></stop>
+                </linearGradient>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+                <g transform="rotate(64 36.592 105.604)">
+                    <mask id="welcome-d" fill="#fff">
+                        <use xlink:href="#welcome-a"></use>
+                    </mask>
+                    <use fill="url(#welcome-b)" xlink:href="#welcome-a"></use>
+                    <path fill="url(#welcome-c)" mask="url(#welcome-d)" d="M64-24h80v152H64z">
+                    </path>
+                </g>
+                <g transform="rotate(-51 91.324 -105.372)">
+                    <mask id="welcome-f" fill="#fff">
+                        <use xlink:href="#welcome-e"></use>
+                    </mask>
+                    <use fill="url(#welcome-b)" xlink:href="#welcome-e"></use>
+                    <path fill="url(#welcome-c)" mask="url(#welcome-f)"
+                          d="M40.333-15.147h50v95h-50z"></path>
+                </g>
+                <g transform="rotate(44 61.546 392.623)">
+                    <mask id="welcome-h" fill="#fff">
+                        <use xlink:href="#welcome-g"></use>
+                    </mask>
+                    <use fill="url(#welcome-b)" xlink:href="#welcome-g"></use>
+                    <path fill="url(#welcome-c)" mask="url(#welcome-h)"
+                          d="M40.333-15.147h50v95h-50z"></path>
+                </g>
+            </g>
+        </svg>
+    </div>
+    <div class="relative">
+        <h1 class="
+                                            text-2xl
+                                            md:text-3xl
+                                            text-slate-800
+                                            font-bold
+                                            mb-1
+                                        ">
+            Bienvenue, @Model.FirstName 👋
+        </h1>
+        <p>
+            Voici ce qui se passe avec vos courriers aujourd'hui :
+        </p>
+    </div>
+</div>
+
+
+<div id="change-password-modal" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
+    <div class="relative px-4 w-full max-w-md h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div class="flex justify-end p-2 m-2">
+
+            </div>
+            <form class="px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" action="/User/ChangePassword" method="post">
+                <h3 class="text-xl font-medium text-gray-900 dark:text-white">Changer votre mot de passe</h3>
+                <input style="display: none" type="text" name="modifiedInPassword" id="modifiedInPass" value="@Model.ModifiedIn.Length" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                <div>
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nouveau mot de passe</label>
+                    <input type="password" name="Password1" id="password1" onkeyup="checkPasswords()" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                </div>
+                <div>
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Confirmation du mot de passe</label>
+                    <input type="password" name="Password" id="password2" onkeyup="checkPasswords()" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                    <p id="changePasswordError" class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"><span class="font-medium">Oops!</span> Veuillez confirmer le mot de passe!</p>
+                </div>
+                <button type="submit" id="btnChangePassword" class="w-full cursor-not-allowed text-white bg-blue-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Changer mot de passe</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $("#fullNameSpan").html($("#fullNameSpan2").html());
+        $("#fullNameDiv").html($("#fullNameSpan2").html());
+        if ($("#modifiedInPass").val() == 0) {
+            $('#btnChangePassword').attr('disabled', 'disabled');
+            toggleModal('change-password-modal', true);
+
+        }
+    });
+
+    function checkPasswords() {
+        if ($("#password1").val() == $("#password2").val()) {
+            $('#btnChangePassword').removeAttr('disabled');
+            $('#btnChangePassword').removeClass('cursor-not-allowed');
+            $('#btnChangePassword').removeClass('bg-blue-400');
+            $('#btnChangePassword').addClass('bg-blue-700');
+            $('#btnChangePassword').addClass('hover:bg-blue-800');
+            $('#changePasswordError').hide();
+        }
+        else {
+            $('#btnChangePassword').attr('disabled', 'disabled')
+            $('#btnChangePassword').removeClass('bg-blue-700');
+            $('#btnChangePassword').removeClass('hover:bg-blue-800');
+            $('#btnChangePassword').addClass('cursor-not-allowed');
+            $('#btnChangePassword').addClass('bg-blue-400');
+            if ($('#password2').val() != "") {
+                $('#changePasswordError').show();
+
+            }
+        }
+    }
+</script>

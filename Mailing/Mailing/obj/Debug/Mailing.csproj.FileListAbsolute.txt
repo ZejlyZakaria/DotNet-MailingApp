@@ -1,0 +1,258 @@
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\Mailing.dll.config
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\Mailing.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\Mailing.pdb
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\csc.exe
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\csc.exe.config
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\csc.rsp
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\csi.exe
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\csi.exe.config
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\csi.rsp
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.Managed.Core.targets
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.AppContext.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Collections.Immutable.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Console.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Globalization.Calendars.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.IO.Compression.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.IO.FileSystem.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Net.Http.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Net.Sockets.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Reflection.Metadata.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.ValueTuple.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Xml.XmlDocument.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Xml.XPath.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\vbc.exe
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\vbc.exe.config
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\vbc.rsp
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\VBCSCompiler.exe
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\roslyn\VBCSCompiler.exe.config
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\Antlr3.Runtime.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\Microsoft.Web.Infrastructure.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\Newtonsoft.Json.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.Helpers.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.Mvc.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.Optimization.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.Razor.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.WebPages.Deployment.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.WebPages.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.WebPages.Razor.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\WebGrease.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.Helpers.xml
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.Mvc.xml
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.Optimization.xml
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.Razor.xml
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.WebPages.xml
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.WebPages.Deployment.xml
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\System.Web.WebPages.Razor.xml
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\Newtonsoft.Json.xml
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\Antlr3.Runtime.pdb
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\fr\System.Web.Helpers.resources.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\fr\System.Web.Mvc.resources.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\fr\System.Web.Optimization.resources.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\fr\System.Web.Razor.resources.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\fr\System.Web.WebPages.resources.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\fr\System.Web.WebPages.Deployment.resources.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\bin\fr\System.Web.WebPages.Razor.resources.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\obj\Debug\Mailing.csprojAssemblyReference.cache
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\obj\Debug\Mailing.csproj.CoreCompileInputs.cache
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\obj\Debug\Mailing.csproj.CopyComplete
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\obj\Debug\Mailing.dll
+C:\data2\GL\Projets\GESTION_DES_COURRIERS\App\Mailing\Mailing\obj\Debug\Mailing.pdb
+C:\Users\hp\Desktop\Mailing\Mailing\bin\Mailing.dll.config
+C:\Users\hp\Desktop\Mailing\Mailing\bin\Mailing.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\Mailing.pdb
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\csc.exe
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\csc.exe.config
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\csc.rsp
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\csi.exe
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\csi.exe.config
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\csi.rsp
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.AppContext.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Console.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.IO.Compression.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Net.Http.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Net.Sockets.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.ValueTuple.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Xml.XPath.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\vbc.exe
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\vbc.exe.config
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\vbc.rsp
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\VBCSCompiler.exe
+C:\Users\hp\Desktop\Mailing\Mailing\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\hp\Desktop\Mailing\Mailing\bin\Antlr3.Runtime.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\Newtonsoft.Json.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.Helpers.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.Mvc.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.Optimization.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.Razor.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.WebPages.Deployment.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.WebPages.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.WebPages.Razor.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\WebGrease.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.Helpers.xml
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.Mvc.xml
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.Optimization.xml
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.Razor.xml
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.WebPages.xml
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.WebPages.Deployment.xml
+C:\Users\hp\Desktop\Mailing\Mailing\bin\System.Web.WebPages.Razor.xml
+C:\Users\hp\Desktop\Mailing\Mailing\bin\Newtonsoft.Json.xml
+C:\Users\hp\Desktop\Mailing\Mailing\bin\Antlr3.Runtime.pdb
+C:\Users\hp\Desktop\Mailing\Mailing\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\hp\Desktop\Mailing\Mailing\bin\fr\System.Web.Helpers.resources.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\fr\System.Web.Mvc.resources.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\fr\System.Web.Optimization.resources.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\fr\System.Web.Razor.resources.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\fr\System.Web.WebPages.resources.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\fr\System.Web.WebPages.Deployment.resources.dll
+C:\Users\hp\Desktop\Mailing\Mailing\bin\fr\System.Web.WebPages.Razor.resources.dll
+C:\Users\hp\Desktop\Mailing\Mailing\obj\Debug\Mailing.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\Mailing\Mailing\obj\Debug\Mailing.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\Mailing\Mailing\obj\Debug\Mailing.csproj.CopyComplete
+C:\Users\hp\Desktop\Mailing\Mailing\obj\Debug\Mailing.dll
+C:\Users\hp\Desktop\Mailing\Mailing\obj\Debug\Mailing.pdb
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\Mailing.dll.config
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\Mailing.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\Mailing.pdb
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\csc.exe
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\csc.exe.config
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\csc.rsp
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\csi.exe
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\csi.exe.config
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\csi.rsp
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.AppContext.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Console.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.IO.Compression.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Net.Http.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Net.Sockets.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.ValueTuple.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Xml.XPath.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\vbc.exe
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\vbc.exe.config
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\vbc.rsp
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\VBCSCompiler.exe
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\Antlr3.Runtime.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\Newtonsoft.Json.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.Helpers.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.Mvc.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.Optimization.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.Razor.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.WebPages.Deployment.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.WebPages.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.WebPages.Razor.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\WebGrease.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.Helpers.xml
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.Mvc.xml
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.Optimization.xml
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.Razor.xml
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.WebPages.xml
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.WebPages.Deployment.xml
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\System.Web.WebPages.Razor.xml
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\Newtonsoft.Json.xml
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\Antlr3.Runtime.pdb
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\fr\System.Web.Helpers.resources.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\fr\System.Web.Mvc.resources.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\fr\System.Web.Optimization.resources.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\fr\System.Web.Razor.resources.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\fr\System.Web.WebPages.resources.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\fr\System.Web.WebPages.Deployment.resources.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\bin\fr\System.Web.WebPages.Razor.resources.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\obj\Debug\Mailing.csproj.AssemblyReference.cache
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\obj\Debug\Mailing.csproj.CoreCompileInputs.cache
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\obj\Debug\Mailing.csproj.CopyComplete
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\obj\Debug\Mailing.dll
+C:\Users\PRO\OneDrive\Bureau\MyDocuments\Studies\ESISA\4eme Annee\4 eme année S2\DotNet\Mailing\Mailing\obj\Debug\Mailing.pdb

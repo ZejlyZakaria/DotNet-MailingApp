@@ -1,0 +1,511 @@
+﻿@model Mailing.Models.User
+
+@{
+    ViewBag.Title = "Tableau de bord";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="flex items-center justify-between">
+    <div class="flex">
+        <div class="flex items-end">
+            <div class="relative mr-3 w-full revue-form-group">
+                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                    <i class='bx bx-search text-gray-500'></i>
+                </div>
+                <input class="revue-form-field bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rechercher..." type="text" id="searchMails" onkeyup="getMails()">
+            </div>
+        </div>
+    </div>
+
+    <button class="block w-full md:w-auto space-x-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex items-center dark:bg-gray-400" type="button" data-modal-toggle="addmail-modal">
+        <i class='bx bx-plus bx-xs'></i>
+        <h6>Ajouter</h6>
+    </button>
+</div>
+
+<div class="col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200 dark:bg-gray-800 dark:border-gray-700 mt-4">
+    <header class="px-5 py-4 border-b border-slate-100  dark:border-gray-700">
+        <h2 class="font-semibold text-slate-800 dark:text-gray-300">Courriers</h2>
+    </header>
+    <div class="p-3 ">
+        <div class="overflow-x-auto">
+            <table id="mailsTable" class="table-auto w-full">
+                <thead class="text-xs font-semibold uppercase text-slate-400 bg-slate-50 dark:bg-gray-700">
+                    <tr>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-left">Expéditeur</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Service</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-left">Destinataire</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-left">Suivi par</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap ">
+                            <div class="font-semibold text-left">Référence du courrier</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-left">Référence dossier</div>
+                        </th>
+                        @*<th class="p-2 whitespace-nowrap">
+            <div class="font-semibold text-center">Type</div>
+        </th>
+        <th class="p-2 whitespace-nowrap">
+            <div class="font-semibold text-center">Nature</div>
+        </th>
+        <th class="p-2 whitespace-nowrap">
+            <div class="font-semibold text-center">Demande</div>
+        </th>
+        <th class="p-2 whitespace-nowrap">
+            <div class="font-semibold text-center">Sujet</div>
+        </th>
+        <th class="p-2 whitespace-nowrap">
+            <div class="font-semibold text-center">Comment</div>
+        </th>*@
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Répondu</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Ecrit le</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Arrivé le</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Crée le</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Vérification</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Actions</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">&nbsp;</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="mailsData" class="text-sm divide-y divide-slate-100 ">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- Add Modal -->
+<div id="addmail-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden justify-center items-center fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-7xl h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
+                <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                    Ajouter un courrier
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="addmail-modal">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+            <form action="/User/AddMail" method="post" enctype="multipart/form-data">
+                <!-- Modal body -->
+                <div class="p-6 space-y-6">
+                    <div class="px-4 py-5 bg-white dark:bg-gray-700 sm:p-6">
+                        <div class="grid grid-cols-12 gap-3">
+                            <div class="col-span-2 sm:col-span-1" style="margin-top:27px">
+                                <button class="block w-full md:w-auto space-x-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex items-center dark:bg-gray-400" type="button" id="add-new-sender">
+                                    <i class='bx bx-plus bx-xs' id="add-icon"></i>
+                                </button>
+                            </div>
+                            <div class="col-span-6 sm:col-span-2 flex" id="senders-list">
+                                <div class="col-span-10 sm:col-span-8" style="width:100%">
+                                    <label for="sender" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Expéditeur</label>
+                                    <select id="modifySenderId" name="MailSender.Id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        @foreach (Mailing.Models.Sender sender in (List<Mailing.Models.Sender>)ViewData["listSenders"])
+                                        {
+                                            <option value="@sender.Id">@sender.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-span-6 sm:col-span-2" id="sender-name">
+                                <label for="sender-name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Nom de l'expéditeur</label>
+                                <input type="text" name="MailSender.Name" id="MailSender.Name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" style="background-color: #f5f5f0; color: black">
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3" id="sender-adress">
+                                <label for="sender-aderess" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Adresse de l'expéditeur</label>
+                                <input type="text" name="MailSender.Address" id="MailSender.Address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" style="background-color: #f5f5f0; color: black">
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="sender" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Service</label>
+                                <select id="MailService_Id" name="MailService.Id" onchange="checkUsers()" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    @foreach (Mailing.Models.Service service in (List<Mailing.Models.Service>)ViewData["listServices"])
+                                    {
+                                        <option value="@service.Id">@service.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="responsable" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Déstinataire</label>
+                                <select id="MailResp_Id" name="MailResponsable.Id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    @foreach (Mailing.Models.User user in (List<Mailing.Models.User>)ViewData["listUsers"])
+                                    {
+                                        <option value="@user.Id">@user.FirstName  @user.LastName</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3" style="display:none">
+                                <label for="responsable" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Suivi par</label>
+                                <input id="MailFollowedBy_Id" name="MailFollowedBy.Id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" readonly selected />
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="first-name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Référence du courrier</label>
+                                <input type="text" name="MailRef" id="MailRef" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Référence du dossier</label>
+                                <input type="text" name="FolderRef" id="FolderRef" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="Type_Id" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Type</label>
+                                <select id="Type_Id" name="Type" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="courrier">courrier</option>
+                                    <option value="document interne">document interne</option>
+                                    <option value="Type 3">Type 3</option>
+                                    <option value="autre">autre</option>
+                                </select>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="Nature" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Nature</label>
+                                <select id="Nature_Id" name="Nature" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                    <option value="Facture">Facture</option>
+                                    <option value="bordereau">bordereau</option>
+                                    <option value="Nature 3">Nature 3</option>
+                                    <option value="autre">autre</option>
+                                </select>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="Demande" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Demande</label>
+                                <input type="text" name="Demande" id="Demande" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="Purpose" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Sujet</label>
+                                <input type="text" name="Purpose" id="Purpose" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="Comment" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Commentaire</label>
+                                <input type="text" name="Comment" id="Comment" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Ecrit le</label>
+                                <div class="relative">
+                                    <input name="WrittenIn" id="WrittenIn" datepicker type="date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                                </div>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Arrivé le</label>
+                                <div class="relative">
+                                    <input name="ArrivedIn" id="ArrivedIn" datepicker type="date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                                </div>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Ajouter un fichier</label>
+                                <div class="relative">
+                                    <input type="file" name="Link" id="Link" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ajouter</button>
+                    <button data-modal-toggle="addmail-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Fermer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full" id="popup-modal">
+    <div class="relative px-4 w-full max-w-md h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex justify-end p-2">
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-6 pt-0 text-center">
+                <svg class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Voulez-vous vraiment supprimer cet utilisateur ?</h3>
+                <form action="/User/DeleteMail" method="post">
+                    <input type="number" name="idMail" id="deleteMailId" value="" style="display: none" />
+                    <button type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Oui, je suis sûr
+                    </button>
+                    <button data-modal-toggle="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Non, annuler</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="reaffecter-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="reaffecter-modal">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+            <div class="p-6 text-center">
+                <form method="post" action="/User/UpdateMail">
+                    <input type="number" name="Id" id="idMailOld" value="" style="display: none" />
+                    <select id="nnewMailResponsable" name="MailResponsable.Id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        @foreach (Mailing.Models.User user in (List<Mailing.Models.User>)ViewData["listUsers"])
+                        {
+                            <option value="@user.Id">@user.FirstName  @user.LastName</option>
+                        }
+                    </select>
+                    <button data-modal-toggle="reaffecter-modal" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Reaffecter
+                    </button>
+                    <button data-modal-toggle="reaffecter-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
+
+                </form>
+</div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let users = new Array;
+    let currentUser;
+    $(document).ready(function () {
+        getMails();
+        getUsers();
+        $("#sender-name").hide()
+        $("#sender-adress").hide()
+        getCurrentUser();
+    });
+
+    function reaffecterData(idNew) {
+        $("#idMailOld").val(idNew);
+        toggleModal("reaffecter-modal");
+    }
+    function getCurrentUser() {
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Action("/GetCurrentUser")',
+            dataType: 'json',
+            success: function (data) {
+                currentUser = data;
+            }
+
+        });
+        return false;
+    }
+
+    function passData(data, to) {
+        $("#" + to).val(data);
+        toggleModal("popup-modal");
+    }
+
+    function passModifyData(id, MailSender, MailService, RespFullName, MailRef, FolderRef, modifyWrittenIn, modifyArrivedIn, modifyCreatedIn ) {
+        $("#modifyId").val(id);
+        $("#modifySenderId").val(MailSender);
+        $("#modifyServiceId").val(MailService);
+        $("#modifyResponsableId").html("");
+        users.forEach(function (user) {
+            if (user.UserService.Name == MailService) {
+                if ((user.FirstName + " " + user.LastName) == RespFullName) {
+                    $("#modifyResponsableId").append("<option value='" + user.Id + "' selected>" + user.FirstName + " " + user.LastName + "</option>")
+
+                }
+                else {
+                    $("#modifyResponsableId").append("<option value='" + user.Id + "'>" + user.FirstName + " " + user.LastName + "</option>")
+
+                }
+            }
+
+        });
+        $("#modifyMailRef").val(MailRef);
+        $("#modifyFolderId").val(FolderRef);
+        $("#modifyWrittenInId").val(modifyWrittenIn);
+        $("#modifyArrivedInId").val(modifyArrivedIn);
+        $("#modifyCreatedInId").val(modifyCreatedIn);
+        toggleModal("modify-mail-modal");
+
+
+    }
+
+    function getMails() {
+        var keyword = $("#searchMails").val();
+        console.log(keyword);
+        $('#mailsTable tbody').empty();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("/GetMails")',
+            dataType: 'json',
+            data: { key: keyword },
+            success: function (data) {
+                var items = '';
+                $.each(data, function (i, item) {
+                    var rows = "<tbody id='usersBody' class='text-sm divide-y divide-slate-100 dark:bg-gray-800'>" +
+                    "<tr>" +
+                        "<td class='p-2 whitespace-nowrap'>" +
+                            "<div class='flex items-center'>" +
+                                "<div class='w-10 h-10 shrink-0 mr-2 sm:mr-3'>" +
+                                    "<img class='rounded-full'  src='https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'  width='40' height='40' alt='Alex Shatov'>" +
+                                "</div>" +
+                                "<div class='font-medium flex text-slate-800 dark:text-gray-300'>" + item.MailSender.Name + "</div>" +
+                            "</div>" +
+                        "</td>" +
+                        "<td class='p-2 whitespace-nowrap'>" +
+                            "<div class='flex items-center'>" +
+                                "<div class='font-medium flex text-slate-800 dark:text-gray-300'>" + item.MailService.Name + "</div>" +
+                            "</div>" +
+                        "</td>" +
+                        "<td class='p-2 whitespace-nowrap'>" +
+                            "<div class='flex items-center'>" +
+                                "<div class='w-10 h-10 shrink-0 mr-2 sm:mr-3'>" +
+                                    "<img class='rounded-full'  src='https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'  width='40' height='40' alt='Alex Shatov'>" +
+                                "</div>" +
+                                "<div class='font-medium flex text-slate-800 dark:text-gray-300'>" + item.MailResponsable.FirstName + " " + item.MailResponsable.LastName + "</div>" +
+                            "</div>" +
+                        "</td>" +
+                        "<td class='p-2 whitespace-nowrap'>" +
+                            "<div class='flex items-center'>" +
+                                "<div class='w-10 h-10 shrink-0 mr-2 sm:mr-3'>" +
+                                    "<img class='rounded-full'  src='https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'  width='40' height='40' alt='Alex Shatov'>" +
+                                "</div>" +
+                                "<div class='font-medium flex text-slate-800 dark:text-gray-300'>" + item.MailFollowedBy.FirstName + "</div>" +
+                            "</div>" +
+                        "</td>" +
+                        "<td class='p-2 whitespace-nowrap'><div class='text-left font-medium text-green-500'>" + item.MailRef + "</div></td>" +
+                        "<td class='p-2 whitespace-nowrap'><div class='text-left font-medium text-green-500'>" + item.FolderRef + "</div></td>" +
+                        "<td class='p-2 whitespace-nowrap'>" +
+                            "<div  class='font-medium text-center'>"
+                                if (item.MailResponse.Id > 0) {
+                                    rows += "<span class='bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900'>Oui</span>";
+                                }
+                                else {
+                                    rows += "<span class='bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900'>Non</span>";
+                                }
+                        rows += "</div>" +
+                            "</td>" +
+                            "<td class='p-2 whitespace-nowrap'><div class='text-center text-gray-500'>" + item.WrittenIn + "</div></td>" +
+                            "<td class='p-2 whitespace-nowrap'><div class='text-center text-gray-500'>" + item.ArrivedIn + "</div></td>" +
+                            "<td class='p-2 whitespace-nowrap'><div class='text-center text-gray-500'>" + item.CreatedIn + "</div></td>" +
+                            "<td class='p-2 whitespace-nowrap'><div class='text-center text-gray-500'><a href='https://localhost:44376/assets/files/" + item.Link + "'><i class='bx bx-show-alt'></i></a></div></td>" +
+                            "<td class='p-2 whitespace-nowrap'>" +
+                                "<div class='text-center space-x-1 text-lg'> ";
+                    var para = item.Id + ",'deleteMailId'";
+                    var fullName = item.MailResponsable.FirstName + " " + item.MailResponsable.LastName;
+                        var para2 = item.Id + ",'" + item.MailSender.Name + "','" + item.MailService.Name + "','" + fullName + "','" + item.MailRef + "','" + item.FolderRef + "', '" + item.WrittenIn + "','" + item.ArrivedIn + "','" + item.CreatedIn + "'";
+                        para2.replace('"', '');
+                        rows += "<i class='bx bxs-trash text-red-600 cursor-pointer dark:text-red-500' onclick=passData(" + para + ") ></i>";
+                        rows += "<i class='bx bx-transfer-alt text-blue-700 cursor-pointer dark:text-blue-500' onclick=reaffecterData(" + item.Id + ") ></i>";
+                        "</div>"
+                        "</td>"
+                        "</tr></tbody>"
+
+                    $('#mailsTable').append(rows);
+                });
+            }
+
+        });
+        return false;
+    }
+
+    function getUsers() {
+        var keyword = ""
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("/GetUsers2")',
+            dataType: 'json',
+            data: { key: keyword },
+            success: function (data) {
+                var items = '';
+                console.log(data)
+
+                $.each(data, function (i, item) {
+                    users.push(item);
+                });
+                var selectedService = $("#MailService_Id").find(":selected").text();
+                console.log(selectedService)
+                $("#MailResp_Id").html("");
+                users.forEach(function (user) {
+                    if (user.UserService.Name == selectedService) {
+                        $("#MailResp_Id").append(new Option(user.FirstName + " " + user.LastName, user.Id))
+                        //$("#MailResp_Id").val(user.Id)
+                    }
+                    if (user.UserService.Name == selectedService && user.IsResponsable) {
+                        //$("#MailFollowedBy_Id").val(user.FirstName + " " + user.LastName)
+                        $("#MailFollowedBy_Id").val(user.Id)
+
+                    }
+                });
+            },
+            error: function (ex) {
+                var r = jQuery.parseJSON(response.responseText);
+                alert("Message: " + r.Message);
+                alert("StackTrace: " + r.StackTrace);
+                alert("ExceptionType: " + r.ExceptionType);
+            }
+        });
+        return false;
+    }
+
+    function checkUsers() {
+        var selectedService = $("#MailService_Id").val();
+        console.log(selectedService)
+        $("#MailResp_Id").html("");
+        users.forEach(function (user) {
+            console.log(user.UserService.Id)
+
+            if (user.UserService.Id.toString() == selectedService) {
+                $("#MailResp_Id").append(new Option(user.FirstName + " " + user.LastName, user.Id))
+                //$("#MailResp_Id").val(user.Id)
+                console.log("rrr" + user.Id)
+            }
+            if (user.UserService.Id.toString() == selectedService && user.IsResponsable) {
+
+                var userId2 = user.Id;
+                console.log("this is id" + userId2);
+                $("#MailFollowedBy_Id").val(userId2);
+                //$("#MailFollowedBy_Id").append(new Option(user.FirstName + " " + user.LastName, userId2))
+
+            }
+        });
+    }
+
+    $("#add-new-sender").click(function () {
+
+        if ($("#add-icon").hasClass("bx bx-plus bx-xs")) {
+            $("#senders-list").css("display", "none")
+            $("#sender-name").show()
+            $("#sender-adress").show()
+            $("#add-icon").removeClass("bx bx-plus bx-xs")
+            $("#add-icon").addClass("bx bx-x")
+        }
+        else{
+            $("#senders-list").css("display", "block")
+            $("#sender-name").hide()
+            $("#sender-adress").hide()
+            $("#add-icon").removeClass("bx bx-x")
+            $("#add-icon").addClass("bx bx-plus bx-xs")
+        }
+    });
+</script>
